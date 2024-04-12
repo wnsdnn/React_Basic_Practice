@@ -1,6 +1,6 @@
 import React from "react";
 
-function Wrapper(props) {
+function Wrapper(props: any) {
     const style = {
         border: '2px solid black',
         padding: 16

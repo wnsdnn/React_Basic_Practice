@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 
 function InputSample() {
     const [inputs, setInputs] = useState({
@@ -6,12 +6,12 @@ function InputSample() {
         nickname: '',
     });
 
-    const nameInput = useRef();
+    const nameInput = useRef<HTMLInputElement>(null);
 
     const { name, nickname } = inputs; // 값 추출
 
-    const onChange = (e) => {
-        const { value, name } = e.target;
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value, name } = e.target as HTMLInputElement;
 
         // 이런식으로 직접 수정 X
         // inputs[name] = value;
@@ -28,7 +28,7 @@ function InputSample() {
             nickname: '',
         });
 
-        nameInput.current.focus();
+        nameInput.current?.focus();
     };
 
     return (
