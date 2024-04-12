@@ -1,20 +1,19 @@
 import './App.css';
-import Test from "./componemts/Test";
-import Hello from "./componemts/Hello";
-import Wrapper from "./componemts/Wrapper";
+import Test from "./components/Test";
+import Hello from "./components/Hello";
+import Wrapper from "./components/Wrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "./store/actions/action";
-import Counter from "./componemts/Counter";
-import InputSample from "./componemts/InputSample";
-import UserList from "./componemts/UserList";
+import Counter from "./components/Counter";
+import InputSample from "./components/InputSample";
+import UserList from "./components/UserList";
 
 function RenderTitle(props: any) {
     return (
         <div>
             <h2># {props.title}</h2>
             {props.children}
-            <br />
-            <br />
+            <br /><br />
         </div>
     );
 }

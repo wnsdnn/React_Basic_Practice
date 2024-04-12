@@ -37,9 +37,10 @@ function UserList() {
 
     return (
         <div>
-            <User user={users[0]} />
-            <User user={users[1]} />
-            <User user={users[2]} />
+            {/* key값을 넣어줘야지 재렌더링시 효율적으로 렌더링할 수 있음*/}
+            {users.map((user: UserVO) => (
+                <User user={user} key={user.id} />
+            ))}
         </div>
     );
 }
