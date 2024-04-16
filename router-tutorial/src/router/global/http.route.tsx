@@ -1,8 +1,9 @@
-import { RouteVo } from "../../type/route";
+import { RouteStructure } from "../../type/route";
 import NotFound from "../../pages/NotFound";
 
-const _notFound: RouteVo = {
+const _notFound: RouteStructure = {
     path: '*',
+    prefix: '*',
     element: <NotFound />,
 }
 
@@ -10,7 +11,7 @@ const _httpRoute = {
     _notFound
 } as const;
 
-const _httpRoutes: readonly RouteVo[] = [
+const _httpRoutes: readonly RouteStructure[] = [
     _notFound,
 ] as const;
 

@@ -1,8 +1,9 @@
-import { RouteVo } from "../../type/route";
+import { RouteStructure } from "../../type/route";
 import Profile from "../../pages/Profile";
 
-const profilePreivew: RouteVo = {
+const profilePreivew: RouteStructure = {
     path: '/profiles/:username',
+    prefix: '/profiles/:username',
     element: <Profile />,
 } as const;
 
@@ -10,7 +11,7 @@ const profileRoute = {
     profilePreivew,
 } as const;
 
-const profileRoutes: readonly RouteVo[] = [
+const profileRoutes: readonly RouteStructure[] = [
     profilePreivew,
 ] as const;
 

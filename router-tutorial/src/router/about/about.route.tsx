@@ -1,8 +1,9 @@
-import { RouteVo } from "../../type/route";
+import { RouteStructure } from "../../type/route";
 import About from "../../pages/About";
 
-const aboutPreivew: RouteVo = {
+const aboutPreivew: RouteStructure = {
     path: '/about',
+    prefix: '/about',
     element: <About />,
 } as const;
 
@@ -10,7 +11,7 @@ const aboutRoute = {
     aboutPreivew,
 } as const;
 
-const aboutRoutes: readonly RouteVo[] = [
+const aboutRoutes: readonly RouteStructure[] = [
     aboutPreivew,
 ] as const;
 

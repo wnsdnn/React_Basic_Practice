@@ -1,11 +1,12 @@
 import { ReactElement } from "react";
 
-interface RouteVo {
+interface RouteStructure {
     path: string;
+    prefix: string;
     element: ReactElement;
-    children?: RouteVo[];
+    children?: RouteStructure[];
 }
 
 export {
-    RouteVo,
+    RouteStructure,
 }
