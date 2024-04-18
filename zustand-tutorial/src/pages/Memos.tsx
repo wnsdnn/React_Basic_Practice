@@ -1,5 +1,5 @@
 import React from "react";
-import useMemosStore from "../store/memos";
+import useMemosStore from "../store/memoStore";
 
 // interface MemosProps {
 //     memos: string[];
@@ -18,7 +18,7 @@ import useMemosStore from "../store/memos";
 // }
 
 const Memos: React.FC = () => {
-    const { memos } = useMemosStore();
+    const memos = useMemosStore((state) => state.memos);
 
     return (
         <ul>

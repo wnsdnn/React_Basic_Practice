@@ -1,5 +1,5 @@
 import React from "react";
-import useMemosStore from "../store/memos";
+import useMemosStore from "../store/memoStore";
 
 // interface FormComponentProps {
 //     onAdd: AddEventHandlerType;
@@ -23,7 +23,7 @@ import useMemosStore from "../store/memos";
 
 
 const Form = () => {
-    const { memo, setMemo, setMemos } = useMemosStore();
+    const [memo, setMemo, setMemos] = useMemosStore((state) => [state.memo, state.setMemo, state.setMemos]);
 
     const handleWriteMemo = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMemo(e.target.value);
