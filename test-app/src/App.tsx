@@ -8,7 +8,8 @@ import Counter from "./components/Counter";
 import InputSample from "./components/InputSample";
 import UserList from "./components/UserList";
 import { UserVO } from "./types/global";
-import { useRef } from "react";
+import React, { useRef, useState } from "react";
+import CreateUser from "./components/CreateUser";
 
 function RenderTitle(props: any) {
     return (
@@ -24,7 +25,7 @@ function App() {
     const count = useSelector((state: any) => state.count);
     const dispatch = useDispatch();
 
-    const users: UserVO[] = [
+    const [users, setUsers]: [UserVO[], Function] = useState([
         {
             id: 1,
             username: 'velopert',
@@ -40,10 +41,37 @@ function App() {
             username: 'liz',
             email: 'liz@example.com',
         },
-    ];
+    ]);
+
+    const [inputs, setInputs] = useState({
+        username: '',
+        email: '',
+    });
+
+    const { username, email } = inputs;
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value,
+        });
+    };
 
     const nextId = useRef(4);
     const onCreate = () => {
+        const user = {
+            id: nextId.current,
+            username,
+            email,
+        };
+        // setUsers([...users, user]);
+        setUsers(users.concat(user));
+
+        setInputs({
+            username: '',
+            email: '',
+        });
         // useRef도 '.current'로 값에 접근할수 있음.
         nextId.current += 1;
     }
@@ -51,6 +79,12 @@ function App() {
     return (
         <div style={{padding: "0 240px"}}>
             <RenderTitle title="UserList">
+                <CreateUser
+                    username={username}
+                    email={email}
+                    onChange={onChange}
+                    onCreate={onCreate}
+                />
                 <UserList users={users} />
             </RenderTitle>
             <RenderTitle title="InputSample">

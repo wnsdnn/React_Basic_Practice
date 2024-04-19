@@ -4,7 +4,8 @@ function CreateUser({
     username,
     email,
     onChange,
-    onCreate }: {
+    onCreate
+}: {
     username: string,
     email: string,
     onChange: ChangeEventHandler<HTMLInputElement>,
