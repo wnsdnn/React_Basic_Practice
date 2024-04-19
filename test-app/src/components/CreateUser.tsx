@@ -1,4 +1,5 @@
 import React, { ChangeEventHandler, MouseEventHandler } from "react";
+import { onChangeType, onCreateType } from "../types/global";
 
 function CreateUser({
     username,
@@ -8,8 +9,8 @@ function CreateUser({
 }: {
     username: string,
     email: string,
-    onChange: ChangeEventHandler<HTMLInputElement>,
-    onCreate: MouseEventHandler<HTMLButtonElement>,
+    onChange: onChangeType,
+    onCreate: onCreateType,
 }) {
     return (
         <div>

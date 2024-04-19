@@ -76,6 +76,10 @@ function App() {
         nextId.current += 1;
     }
 
+    const onRemove = (id: number) => {
+        setUsers(users.filter(user => user.id !== id));
+    }
+
     return (
         <div style={{padding: "0 240px"}}>
             <RenderTitle title="UserList">
@@ -85,7 +89,10 @@ function App() {
                     onChange={onChange}
                     onCreate={onCreate}
                 />
-                <UserList users={users} />
+                <UserList
+                    users={users}
+                    onRemove={onRemove}
+                />
             </RenderTitle>
             <RenderTitle title="InputSample">
                 <InputSample />

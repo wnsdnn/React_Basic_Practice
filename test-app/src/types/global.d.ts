@@ -1,3 +1,5 @@
+import { ChangeEventHandler, MouseEventHandler } from "react";
+
 type UserVO = {
     id: number;
 
@@ -6,6 +8,15 @@ type UserVO = {
     email: string;
 }
 
+type onChangeType = ChangeEventHandler<HTMLInputElement>;
+
+type onCreateType = MouseEventHandler<HTMLButtonElement>;
+
+type onRemoveType = (id: number) => void;
+
 export {
     UserVO,
+    onChangeType,
+    onCreateType,
+    onRemoveType,
 }
